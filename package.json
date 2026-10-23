@@ -1,0 +1,30 @@
+{
+  "name": "website-manager",
+  "productName": "网站管理器",
+  "version": "1.0.0",
+  "description": "网站快速进入管理器",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.local.websitemanager",
+    "productName": "网站管理器",
+    "files": ["main.js", "preload.js", "index.html", "renderer.js", "style.css"],
+    "mac": { "target": "dmg" },
+    "win": { "target": "nsis", "signAndEditExecutable": false },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "网站管理器",
+      "language": "2052"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}

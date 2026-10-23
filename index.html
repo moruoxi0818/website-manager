@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline'" />
+  <title>网站管理器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <span>我的网站</span>
+      <button id="addBtn" title="添加网站">＋</button>
+    </div>
+    <ul id="siteList"></ul>
+    <div id="tools">
+      <div class="tools-title">工具</div>
+      <div class="tool-row">
+        <span title="Translumo 实时屏幕翻译">屏幕翻译</span>
+        <label class="switch" title="打开 / 关闭 Translumo">
+          <input type="checkbox" id="translumoSwitch" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <a href="#" id="translumoPick">设置 Translumo 位置</a>
+    </div>
+  </aside>
+
+  <header id="toolbar">
+    <button data-nav="back" id="backBtn" title="后退" disabled>后退</button>
+    <button data-nav="forward" id="fwdBtn" title="前进" disabled>前进</button>
+    <button data-nav="reload" title="刷新">刷新</button>
+    <button data-nav="home" title="回到该网站首页">首页</button>
+    <div id="address">请选择左侧的网站开始浏览</div>
+    <button data-nav="external" title="在系统浏览器中打开">浏览器打开</button>
+  </header>
+
+  <main id="welcome">
+    <h1>网站管理器</h1>
+    <p>点击左侧网站即可进入；点 ＋ 添加新网站；右键网站可分享、编辑或删除。</p>
+  </main>
+
+  <div id="modal" class="hidden">
+    <form id="siteForm">
+      <h3 id="modalTitle">添加网站</h3>
+      <label>名称<input id="nameInput" maxlength="40" /></label>
+      <label>网址<input id="urlInput" placeholder="例如 www.baidu.com" /></label>
+      <p id="formError"></p>
+      <div class="actions">
+        <button type="button" id="cancelBtn">取消</button>
+        <button type="submit" class="primary">保存</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="shareModal" class="hidden">
+    <div class="share-box">
+      <h3>分享「<span id="shareName"></span>」</h3>
+      <p class="share-tip" id="shareStatus">正在读取网站介绍...</p>
+      <textarea id="shareText" rows="8" spellcheck="false"></textarea>
+      <div class="actions">
+        <span id="copyDone"></span>
+        <button type="button" id="shareRegen">重新生成</button>
+        <button type="button" id="shareClose">关闭</button>
+        <button type="button" id="shareCopy" class="primary">一键复制</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="ctxMenu" class="hidden">
+    <div data-act="share">分享</div>
+    <div data-act="edit">编辑</div>
+    <div data-act="delete" class="danger">删除</div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
