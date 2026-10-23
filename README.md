@@ -100,6 +100,12 @@ npm install
 npm start
 ```
 
+### 直接下载安装包
+
+不想装 Node.js 的话，直接去 [Releases](https://github.com/moruoxi0818/website-manager/releases/latest) 下载 `WebsiteManager-1.0.0-Setup.exe`，双击即可安装。
+
+> 安装包未做代码签名，首次运行若出现「Windows 已保护你的电脑」，点「更多信息 → 仍要运行」。
+
 ### 打包成安装程序
 
 ```bash
